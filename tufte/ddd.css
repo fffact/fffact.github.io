@@ -1,0 +1,223 @@
+
+header {
+  position: relative;
+}
+
+#content-padder {
+  max-width: 1000px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: auto;
+
+  position: relative;
+  z-index: 2;
+}
+
+svg.trapezoid {
+  position: absolute;
+  top: 0px;
+
+  width: 100%;
+  height: 377px;
+
+  z-index: 1;
+}
+
+
+
+article {
+  display: flex;
+  justify-content: space-between;
+
+  max-width: 1000px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: auto;
+}
+
+
+
+#sidebar {
+  max-width: 38%;
+}
+
+
+/* SIDEBAR IMAGE */
+div.imgw {
+  position: relative;
+}
+
+div.imgw img {
+  width: 100%;
+  display: block;
+  margin-bottom: 87px;
+}
+
+div.imgw svg {
+  display: block;
+  width: 100%;
+  height: 3%;
+}
+
+div.imgw svg.top {
+  position: absolute;
+  top: 0;
+}
+
+div.imgw svg.bottom {
+  position: absolute;
+  bottom: 0;
+}
+/* END SIDEBAR IMAGE */
+
+
+
+/* PARELLOGRAM */
+.parallelogram {
+  position: relative;
+}
+
+div.parallelogram img {
+  display: block;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  margin-bottom: 87px;
+}
+
+div.parallelogram div::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0px;
+  z-index: 2;
+  width: 100%;
+  height: 24px;
+  background-image: url("top-wedge.svg");
+  background-repeat: no-repeat;
+  background-origin: border-box;
+  /* background-size: cover; */
+}
+
+div.parallelogram div::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0px;
+  z-index: 2;
+  width: 100%;
+  height: 24px;
+  background-image: url("bottom-wedge.svg");
+  background-repeat: no-repeat;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* END PARELLOGRAM */
+
+
+
+#sidebar p {
+  text-align: right;
+  margin-top: 87px;
+  font-size: 16px;
+  line-height: 21px;
+
+  background-color: #FFDE00;
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+}
+
+
+
+#content {
+  max-width: 60%;
+}
+
+a:link {
+  color: #111;
+}
+
+a:active {
+  color: #111;
+}
+
+a:visited {
+  color: #111;
+}
+
+a:hover {
+  color: #111;
+}
+
+#content iframe {
+  width: 100%;
+  margin-bottom: 79px;
+  height: 290px;
+}
+
+
+@media (min-width: 769px) {
+  .small-screen {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  #content-padder {
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+
+  article {
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+
+  div.imgw img {
+    margin-top: -58px;
+    margin-bottom: 29px;
+    width: 104.25%;
+    margin-left: -2%;
+    margin-right: -2%;
+  }
+
+  div.imgw svg {
+    width: 104.25%;
+    margin-left: -2%;
+    margin-right: -2%;
+
+  }
+
+  #sidebar {
+    display: none;
+  }
+
+  #content {
+    max-width: 100%;
+  }
+
+  #content iframe {
+    width: 104.25%;
+    margin-left: -2%;
+    margin-right: -2%;
+  }
+}

@@ -1,0 +1,35 @@
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+p {
+  max-width: 60%;
+}
+
+p.last {
+  margin-bottom: 109px;
+}
+
+.sidebar {
+  float: right;
+  max-width: 38%;
+}
+
+p.sidebar {
+  background-color: yellow;
+}
+
+.iframe-wrapper {
+  max-width: 60%;
+  height: 319px;
+  margin-bottom: 87px;
+}
+
+.iframe-wrapper iframe {
+  width: 100%;
+  height: 100%;
+}

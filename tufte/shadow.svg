@@ -1,0 +1,12 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="66" viewBox="0,0 64,66">
+  <filter id="dropshadow" height="150%" width="150%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+    <feOffset dx="0" dy="1" result="offsetblur"/>
+    <feMerge>
+      <feMergeNode/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+  <polygon fill="teal" filter="url(#dropshadow)" points="32,3 2,33 32,63 62,33"/>
+</svg>

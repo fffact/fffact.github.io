@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>image cut</title>
+    <style media="screen">
+      html, body, div {margin: 0; padding: 0}
+      div.imgw {
+        max-width: 38%;
+        margin: auto;
+        position: relative;
+      }
+
+      div.imgw img {
+        width: 100%;
+        display: block;
+      }
+
+      div.imgw svg {
+        display: block;
+        width: 100%;
+        height: 5%;
+      }
+
+      div.imgw svg.top {
+        position: absolute;
+        top: 0;
+      }
+
+      div.imgw svg.bottom {
+        position: absolute;
+        bottom: 0;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <div class="imgw">
+      <svg class="top" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <polygon points="0,0 100,0 0,100" fill="white">
+      </svg>
+      <img src="http://placeimg.com/400/500/any" alt="">
+      <svg class="bottom" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <polygon points="0,100 100,0 100,100" fill="white">
+      </svg>
+    </div>
+  </body>
+</html>

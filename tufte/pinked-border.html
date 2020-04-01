@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Pinked border</title>
+    <style media="screen">
+      /* SVG Data URI & Border Image (with SVG Drop Shadow) */
+      /* SVG Data URI & Border Image */
+      .svg-ds {
+      position: relative;
+      z-index: 2;
+      background-color: teal;
+      -o-border-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="64" height="66" viewBox="0,0 64,66"><filter id="dropshadow" height="150%" width="150%"><feGaussianBlur in="SourceAlpha" stdDeviation="2"/><feOffset dx="0" dy="1" result="offsetblur"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter><polygon fill="teal" filter="url(#dropshadow)" points="32,3 2,33 32,63 62,33"/></svg>') 27.2727272727% 26.5625% repeat;
+         border-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="64" height="66" viewBox="0,0 64,66"><filter id="dropshadow" height="150%" width="150%"><feGaussianBlur in="SourceAlpha" stdDeviation="2"/><feOffset dx="0" dy="1" result="offsetblur"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter><polygon fill="teal" filter="url(#dropshadow)" points="32,3 2,33 32,63 62,33"/></svg>') 27.2727272727% 26.5625% repeat;
+      border-width: 0 0 18px;
+      border-style: solid;
+      background-clip: padding-box;
+      margin-bottom: -18px;
+      }
+
+      /* Liner Gradients & Pseudo Element */
+      .pseudo {
+      position: relative;
+      z-index: 1;
+      position: relative;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+      background-clip: padding-box;
+      border-bottom: 15px solid transparent;
+      margin-bottom: -15px;
+      -webkit-filter: drop-shadow(rgba(0, 0, 0, 0.75) 0px 1px 2px);
+              filter: drop-shadow(rgba(0, 0, 0, 0.75) 0px 1px 2px);
+      background-color: #ad424e;
+      }
+      .pseudo:after {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 15px;
+      bottom: -15px;
+      left: 0;
+      color: #ad424e;
+      background-image: linear-gradient(45deg, rgba(0, 0, 0, 0) 33.333%, 33.333%, currentColor 66.667%, rgba(0, 0, 0, 0) 66.667%), linear-gradient(-45deg, rgba(0, 0, 0, 0) 33.333%, 33.333%, currentColor 66.667%, rgba(0, 0, 0, 0) 66.667%);
+      background-size: 30px 60px;
+      background-position: 50% -45px;
+      background-repeat: repeat-x;
+      z-index: 1;
+      }
+
+      /* SVG Data URI & Border Image */
+      .css-ds {
+      background-color: orange;
+      -o-border-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="10" viewBox="0 0 2 1" preserveAspectRatio="none"  fill="orange"><polygon points="2 0 0 0 1 1"/></svg>') 0 0 100% repeat;
+         border-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="10" viewBox="0 0 2 1" preserveAspectRatio="none"  fill="orange"><polygon points="2 0 0 0 1 1"/></svg>') 0 0 100% repeat;
+      border-width: 0 0 15px;
+      border-style: solid;
+      background-clip: padding-box;
+      margin-bottom: -10px;
+      -webkit-filter: drop-shadow(rgba(0, 0, 0, 0.75) 0px 1px 2px);
+              filter: drop-shadow(rgba(0, 0, 0, 0.75) 0px 1px 2px);
+      }
+
+      /*******************
+      Unrelated Styles
+      ********************/
+      body {
+      background: #ccc;
+      /*   display: table; */
+      height: 100%;
+      width: 100%;
+      padding-bottom: 50px;
+      }
+
+      body > div {
+      text-align: center;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+      color: white;
+      font: bold 0.75em/1.3 sans-serif;
+      padding: 2em;
+      -webkit-transform: translatez(0);
+              transform: translatez(0);
+      }
+      body > div + div {
+      padding-top: calc(2em + 15px);
+      }
+
+      h1, p {
+      margin: 0;
+      white-space: pre-line;
+      }
+
+      html {
+      height: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="svg-bi svg-ds">
+      <h1>SVG Border Image</h1>
+      <p>(SVG Drop Shadow)</p>
+    </div>
+
+    <div class="pseudo gradient">
+      <div>
+        <h1>Pseudo Element
+            Linear Gradients</h1>
+        <p>(CSS Drop Shadow)</p>
+      </div>
+    </div>
+
+    <div class="svg-bi css-ds">
+      <h1>SVG Border Image</h1>
+      <p>(CSS Drop Shadow)</p>
+    </div>
+
+    <script type="text/javascript">
+      /* Works best in Webkit */
+
+      /* Inline XML data URI fix */
+      /* Some browsers (most browsers) don't render inline XML data URI's unless they are escaped. */
+      (function() {
+
+        if(!window.StyleFix) return;
+        if(hasxmldatauri()) return;
+
+        // Test unescaped XML data uri
+        function hasxmldatauri() {
+          var img = new Image();
+          datauri = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0,0 1,1" fill="#000"></svg>';
+          img.src = datauri;
+          return (img.width == 1 && img.height == 1);
+        }
+
+        StyleFix.register(function(css) {
+          return css.replace(RegExp(/url\(\'data:image\/svg\+xml,(.*)\'\)/gi), function($0, svg) {
+            return "url('data:image/svg+xml," + escape(svg) + "')";
+          });
+        });
+
+      })();
+    </script>
+
+  </body>
+</html>
