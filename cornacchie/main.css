@@ -10,6 +10,7 @@ img {
     max-width: 28em;
     margin: auto;
     font-size: max(3vmin, 20px);
+    padding: 0em 0.5em;
 }
 
 #footer {
@@ -21,6 +22,7 @@ img {
     max-width: 28em;
     margin: auto;
     font-size: max(3vmin, 20px);
+    padding: 0em 0.5em;
 }
 
 #sitemap p {
